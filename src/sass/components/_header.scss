@@ -1,0 +1,194 @@
+.header {
+  background-color: $bg;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  z-index: 10;
+  transition: 0.5s;
+
+  @include Responsive(MD) {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  @include Responsive(XL) {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+  .navbar-brand {
+    flex: 1;
+    color: $blue;
+    font-size: 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 2rem;
+  }
+
+  .search-box {
+    display: flex;
+    margin: 0 3rem;
+    flex: 3;
+
+    .form-control {
+      width: 100%;
+    }
+
+    &:focus-within {
+      .form-control {
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+      }
+
+      .search-result {
+        display: block;
+      }
+    }
+
+    .search-area {
+      flex: 1;
+      display: flex;
+      position: relative;
+
+      .form-control {
+        width: 100%;
+        font-size: 1.25rem;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        outline: none;
+        border: none;
+      }
+
+      .search-result {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        box-shadow: rgba($color: $white, $alpha: 0.3) 0px 0px 15px;
+        background: $white;
+        color: $black;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        word-wrap: break-word;
+        max-height: 80vh;
+        overflow-y: scroll;
+        z-index: 100;
+
+        .search-item {
+          @include bg-hoverable($white, $grey, $black);
+          display: flex;
+          padding: 1rem;
+          border-bottom: 2px solid $grey;
+
+          img {
+            width: 3rem;
+            height: auto;
+            object-fit: cover;
+
+            @include Responsive(MD) {
+              width: 4rem;
+            }
+
+            @include Responsive(XL) {
+              width: 5rem;
+            }
+          }
+        }
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .navmenu {
+    flex: 0;
+
+    .navbar-nav {
+      display: none;
+
+      @include Responsive(MD) {
+        display: flex;
+        padding: 0;
+      }
+    }
+
+    .nav-link {
+      @include hoverable($white, $blue);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 1rem;
+      font-weight: 600;
+      color: $white;
+      letter-spacing: 1px;
+      transition: 300ms;
+
+      &.active {
+        color: $blue;
+      }
+    }
+
+    .menu-toggler {
+      @include hoverable($white, $blue);
+      background-color: $bg;
+      padding: 0.5rem;
+    }
+
+    .hide {
+      @include Responsive(MD) {
+        display: none;
+      }
+      text-align: right;
+
+      &:focus-within {
+        .nav-container {
+          max-height: max-content;
+        }
+      }
+
+      .nav-container {
+        display: none;
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        width: 100vw;
+        background: $bg;
+        overflow: hidden;
+        z-index: 100;
+        padding-right: 2rem;
+
+        &.show {
+          display: block;
+          animation: slide-from-right 0.5s;
+        }
+
+        .menu-toggler {
+          padding: 1rem 0;
+        }
+
+        .navbar-nav {
+          display: block;
+
+          .nav-link {
+            text-transform: capitalize;
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes slide-from-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

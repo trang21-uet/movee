@@ -1,0 +1,23 @@
+.loading-container {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+
+  .loading-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 6px solid $blue;
+    border-right-color: transparent;
+    animation: rotation 1s linear infinite;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

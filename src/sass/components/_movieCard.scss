@@ -1,0 +1,78 @@
+.movie-card {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-bottom: 1px solid $grey;
+  position: relative;
+
+  &:hover {
+    background-color: $black;
+    cursor: pointer;
+    .full-title {
+      color: $blue;
+    }
+  }
+
+  .index {
+    font-size: 2rem;
+    width: 5rem;
+    text-align: center;
+  }
+
+  .movie-title {
+    display: flex;
+    .full-title {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      max-width: 80%;
+    }
+
+    .poster {
+      width: 60px;
+      height: 90px;
+      object-fit: cover;
+    }
+
+    .crew {
+      display: none;
+    }
+
+    @include Responsive(XL) {
+      .full-title {
+        font-size: 1.25rem;
+      }
+      .crew {
+        display: block;
+      }
+    }
+  }
+
+  .rating {
+    width: 20%;
+    line-height: 1.4;
+
+    &.xl {
+      display: none;
+    }
+
+    @include Responsive(XL) {
+      display: none;
+
+      &.xl {
+        text-align: center;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .star {
+      color: $golden;
+      font-size: 1rem;
+      position: relative;
+      top: 3px;
+    }
+  }
+}

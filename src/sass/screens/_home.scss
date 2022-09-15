@@ -1,0 +1,55 @@
+body {
+  background: $bg;
+  color: $text;
+
+  .container {
+    padding: 1rem 2rem;
+    background: $bg;
+    color: $white;
+
+    @include Responsive(MD) {
+      padding: 1.5rem 3rem;
+    }
+
+    @include Responsive(XL) {
+      padding: 3rem 5rem;
+    }
+
+    .home-banner {
+      position: relative;
+      img {
+        width: 100%;
+        height: 70vh;
+        object-fit: cover;
+        filter: brightness(0.8);
+        padding: 2rem 0;
+
+        &:hover {
+          cursor: pointer;
+          filter: brightness(0.5);
+        }
+      }
+
+      .banner-title {
+        position: absolute;
+        bottom: 3rem;
+        left: 1rem;
+        font-size: 2rem;
+        font-weight: bold;
+        max-width: 60%;
+
+        @include Responsive(MD) {
+          font-size: 3rem;
+          bottom: 4rem;
+          left: 2rem;
+        }
+
+        @include Responsive(XL) {
+          font-size: 4rem;
+          bottom: 5rem;
+          left: 3rem;
+        }
+      }
+    }
+  }
+}

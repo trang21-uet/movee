@@ -1,0 +1,21 @@
+#search-result {
+  .title {
+    margin-bottom: 2rem;
+  }
+
+  .result-section {
+    margin-bottom: 2rem;
+    .results-by-type {
+      .result-item {
+        @include bg-hoverable($bg, $black, $blue);
+        display: flex;
+        img {
+          width: 75px;
+          height: 100px;
+          object-fit: cover;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}

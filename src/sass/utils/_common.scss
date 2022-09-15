@@ -1,0 +1,73 @@
+// Common classes
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: $grey;
+}
+
+.p {
+  padding: $spacer;
+}
+
+.m {
+  margin: $spacer;
+}
+
+.pv {
+  padding-top: $spacer;
+  padding-bottom: $spacer;
+}
+
+.ph {
+  padding-left: $spacer;
+  padding-right: $spacer;
+}
+
+.mv {
+  margin-top: $spacer;
+  margin-bottom: $spacer;
+}
+
+.mh {
+  margin-left: $spacer;
+  margin-right: $spacer;
+}
+
+//Mixins
+
+@mixin hoverable($color, $hover-color) {
+  color: $color;
+  transition: 300ms;
+
+  &:hover {
+    color: $hover-color;
+    cursor: pointer;
+  }
+}
+
+@mixin bg-hoverable($bg, $hover-bg, $hover-color) {
+  background: $bg;
+  transition: 300ms;
+
+  &:hover {
+    background: $hover-bg;
+    color: $hover-color;
+    cursor: pointer;
+  }
+}
+
+@mixin absolute-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flex-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
